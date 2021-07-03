@@ -15,6 +15,18 @@ public class Summary {
         this.average = average;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Summary summary = (Summary) o;
+        return min == summary.min &&
+                max == summary.max &&
+                sum == summary.sum &&
+                count == summary.count &&
+                average == summary.average;
+    }
+
     public double getMin() {
         return min;
     }

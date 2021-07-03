@@ -1,10 +1,10 @@
 package bootcamp.data;
 
-public class Process {
+public class Processor {
     double[] array;
 
-    public Process(final double[] array) {
-        this.array = array;
+    public Processor(double[] array) {
+        this.array = array.clone();
     }
 
     public Summary process() {
@@ -12,18 +12,16 @@ public class Process {
         double min = array[0];
         double max = array[0];
         double sum = 0;
-        double count = 0;
+        double count = array.length;
 
-        while (i <= array.length - 1) {
+        while ( i <= array.length - 1) {
             if (array[i] < min) min = array[i];
             if (array[i] > max) max = array[i];
             sum += array[i];
-            count++;
             i++;
         }
-
         double average = sum / array.length;
-        return new Summary(min, max, count, sum, average);
+        return new Summary(min, max, sum, count, average);
     }
 
     public double getValue(int index) {
