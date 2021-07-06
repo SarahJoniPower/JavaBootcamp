@@ -20,11 +20,11 @@ public class Summary {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Summary summary = (Summary) o;
-        return min == summary.min &&
-                max == summary.max &&
-                sum == summary.sum &&
-                count == summary.count &&
-                average == summary.average;
+        return (this.min == summary.min || (Double.isNaN(this.min)) && Double.isNaN(summary.min))
+                && (this.max == summary.max || (Double.isNaN(this.max)) && Double.isNaN(summary.max))
+                && (this.sum == summary.sum || (Double.isNaN(this.sum)) && Double.isNaN(summary.sum))
+                && (this.count == summary.count || (Double.isNaN(this.count)) && Double.isNaN(summary.count))
+                && (this.average == summary.average || (Double.isNaN(this.average)) && Double.isNaN(summary.average));
     }
 
     public double getMin() {

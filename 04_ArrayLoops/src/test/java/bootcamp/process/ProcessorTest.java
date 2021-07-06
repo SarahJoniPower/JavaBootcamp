@@ -16,16 +16,23 @@ public class ProcessorTest {
 
     @Test
     public void shouldGetDefaultSummaryWhenProcessingEmptyArray() {
-        fail("Not Implemented");
+        double[] array = {};
+        Processor processor = new Processor(array);
+        Summary summary = new Summary(Double.NaN, Double.NaN, 0.0,0.0, Double.NaN);
+        assertEquals(summary, processor.process());
     }
 
     @Test
     public void shouldReturnValueAtGivenArrayIndex() {
-        fail("Not Implemented");
+        double[] array = {2,4,6,9};
+        Processor processor = new Processor(array);
+        assertEquals(2, processor.getValue(0), 0.0);
     }
 
     @Test(expected = ArrayIndexOutOfBoundsException.class)
     public void shouldGetExceptionFromGetValueWhenIndexTooLarge() {
-        fail("Not Implemented");
+        double[] array = {2,4,6,9};
+        Processor processor = new Processor(array);
+        assertEquals(2, processor.getValue(7), 0.0);
     }
 }
