@@ -26,13 +26,13 @@ public class ProcessorTest {
     public void shouldReturnValueAtGivenArrayIndex() {
         double[] array = {2,4,6,9};
         Processor processor = new Processor(array);
-        assertEquals(2, processor.getValue(0), 0.0);
+        assertEquals(4, processor.getValue(1), 0.0);
     }
 
-    @Test(expected = ArrayIndexOutOfBoundsException.class)
+    @Test
     public void shouldGetExceptionFromGetValueWhenIndexTooLarge() {
         double[] array = {2,4,6,9};
         Processor processor = new Processor(array);
-        assertEquals(2, processor.getValue(7), 0.0);
+        assertEquals(Double.NaN, processor.getValue(7), 0.0);
     }
 }

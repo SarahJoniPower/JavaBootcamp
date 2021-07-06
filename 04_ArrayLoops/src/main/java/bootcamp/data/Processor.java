@@ -30,6 +30,10 @@ public class Processor {
     }
 
     public double getValue(int index) {
-        return array[index];
+        if (index > array.length || index < 0 ) {
+            return Double.NaN;
+        } else {
+            return array[index];
+        }
     }
 }
