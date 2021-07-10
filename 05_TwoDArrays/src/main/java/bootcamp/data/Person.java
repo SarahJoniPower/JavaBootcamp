@@ -24,8 +24,8 @@ public class Person {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Person person = (Person) o;
-        return firstName.equals(person.getFirstName()) &&
-                lastName.equals(person.getLastName());
+        return firstName.equals(person.firstName) &&
+                lastName.equals(person.lastName);
 
     }
 
