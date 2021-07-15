@@ -22,8 +22,11 @@ public class Calculator {
             return new Result(Status.InvalidOperation, "There was a problemo", Optional.empty());
         }
 
-        return new Result(Status.Success, "A result!", Optional.of(element.get().process(params.getX(), params.getY())));
-
+        try {
+            return new Result(Status.Success, "A result!", Optional.of(element.get().process(params.getX(), params.getY())));
+        } catch (ArithmeticException error) {
+            return new Result(Status.ArithmeticError, error.getMessage(), Optional.empty());
+        }
         //FIXME using the factory and implementations of ProcessingElement
     }
 }

@@ -12,8 +12,8 @@ public class CalculatorApp {
     public static void main (String [] args) {
 
         var x = new BigDecimal(2);
-        var y = new BigDecimal(4);
-        var operator = "-";
+        var y = new BigDecimal(0);
+        var operator = "/";
 
         Params params = new Params(x, y, operator);
 
