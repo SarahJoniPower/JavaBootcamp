@@ -54,6 +54,10 @@ public class AddressDirectoryTest {
         directory.updateAddress(new PersonAddressPair(nonexistingPerson, newAddress));
         assertEquals(directory.getAddress(nonexistingPerson).get(), newAddress);
     }
+
+    @Test
+    public void removeAddressEntry() {
+        directory.remove(new Person("Megan", "G"));
+        assertEquals(directory.findPerson(new Person("Megan", "G")), false);
+    }
 }
-
-

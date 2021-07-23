@@ -37,6 +37,13 @@ public class AddressDirectory {
         directory.remove(person);
     }
 
+    public boolean findPerson(Person person) {
+        if (directory.keySet().contains(person)) {
+            return true;
+        }
+        return false;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
