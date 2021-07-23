@@ -20,8 +20,17 @@ public class AddressDirectory {
         return Optional.ofNullable(directory.get(person));
     }
 
-    public void updateAddress(final PersonAddressPair personAddress) {
-        directory.replace(personAddress.getPerson(), personAddress.getAddress());
+    public Optional<Address> getPerson(final Address address) {
+        return Optional.ofNullable(directory.get(address));
+    }
+
+    public void updateAddress(PersonAddressPair personAddress) {
+        if (directory.keySet().contains(personAddress.getPerson())) {
+            directory.replace(personAddress.getPerson(), personAddress.getAddress());
+        }
+        else {
+            directory.put(personAddress.getPerson(), personAddress.getAddress());
+        }
     }
 
     public void remove(final Person person) {
